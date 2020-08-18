@@ -31,6 +31,7 @@
 
 # Configure Chrony (NTP) sync
 - include: chrony-client.yml
+  when: chrony_install
 
 # Install the OpenShift API libraries required by the GPU plugin
 - include: bootstrap-openshift.yml
@@ -118,7 +119,7 @@
   when: deepops_gpu_operator_enabled | default('false') | bool == false
 
 # Install k8s GPU device plugin
-- include: k8s-gpu-plugin.yml
+- include: nvidia-k8s-gpu-device-plugin.yml
   tags:
     - nvidia
   when: deepops_gpu_operator_enabled | default('false') | bool == false
