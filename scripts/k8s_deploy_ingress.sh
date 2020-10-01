@@ -24,7 +24,7 @@ if ! kubectl version ; then
     echo "Unable to talk to Kubernetes API"
     exit 1
 fi
-# We need to dynamically set up Helm args, so let's use an array
+
 #"--version" "${CHART_VERSION}"
 helm_arguments=("--values" "${config_dir}/helm/ingress.yml")
 

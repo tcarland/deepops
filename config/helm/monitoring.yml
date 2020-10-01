@@ -19,7 +19,7 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 40Gi
+              storage: 10Gi
     nodeSelector:
       node-role.kubernetes.io/master: ""
   service:
