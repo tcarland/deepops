@@ -7,8 +7,16 @@ configInline:
   - name: default
     protocol: layer2
     addresses:
-    - 10.0.0.100-10.0.0.110
+    - 10.6.1.100-10.6.1.110
 
 controller:
+  image:
+    repository: metallb/controller
+    tag: v0.9.3
   nodeSelector:
     node-role.kubernetes.io/master: ""
+
+speaker:
+  image:
+    repository: metallb/speaker
+    tag: v0.9.3

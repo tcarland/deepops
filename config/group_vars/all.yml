@@ -6,6 +6,9 @@
 # Define per-group or per-host values in the other configuration files
 #
 
+dns_domain: cluster.local
+cluster_name: cluster.local
+
 ################################################################################
 # PROXY
 ################################################################################
@@ -30,7 +33,7 @@
 
 # NTP configuration
 # Playbook: chrony-client
-chrony_install: yes
+chrony_install: no
 chrony_service_state: "started"
 chrony_service_enabled: "yes"
 chrony_timezone: "Etc/UTC"
@@ -126,12 +129,12 @@ gpu_clock_lock: "1507,1507"
 # Playbook: docker, nvidia-docker, k8s-cluster
 # 
 # For supported Docker versions, see: kubespray/roles/container-engine/docker/vars/*
-docker_version: '18.09'
+docker_version: '19.03'
 docker_dns_servers_strict: no
 docker_storage_options: -s overlay2
-#docker_options: "--bip=192.168.99.1/24"
+docker_options: "--bip=192.168.99.1/24"
 # Install DeepOps version of Docker on DGX
-docker_override_dgx: false
+docker_override_dgx: true
 
 # Enroot configuration
 # Playbook: slurm, slurm-cluster
