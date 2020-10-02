@@ -26,10 +26,8 @@ if ! kubectl version ; then
 fi
 
 # We need to dynamically set up Helm args, so let's use an array
-helm_arguments=("--version" "${CHART_VERSION}"
-		"--values" "${config_dir}/helm/ingress.yml"
-)
-
+helm_arguments=("--values" "${config_dir}/helm/ingress.yml")
+#"--version" "${CHART_VERSION}"
 
 if [ "${NGINX_INGRESS_CONTROLLER_REPO}" ]; then
 	helm_arguments+=("--set-string" "controller.image.repository=${NGINX_INGRESS_CONTROLLER_REPO}")

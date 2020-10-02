@@ -64,14 +64,14 @@ function get_opts() {
 
 function delete_monitoring() {
     helm uninstall prometheus-operator
-    helm uninstall "${ingress_name}"
+    #helm uninstall "${ingress_name}"
     kubectl delete crd prometheuses.monitoring.coreos.com
     kubectl delete crd prometheusrules.monitoring.coreos.com
     kubectl delete crd servicemonitors.monitoring.coreos.com
     kubectl delete crd podmonitors.monitoring.coreos.com
     kubectl delete crd alertmanagers.monitoring.coreos.com
     kubectl delete crd thanosrulers.monitoring.coreos.com
-    kubectl delete ns monitoring
+    #kubectl delete ns monitoring
 }
 
 function setup_prom_monitoring() {
@@ -100,7 +100,7 @@ function setup_prom_monitoring() {
     fi
 
     # Deploy the ingress controller with a set name
-    NGINX_INGRESS_APP_NAME="${ingress_name}" ./scripts/k8s_deploy_ingress.sh
+    #NGINX_INGRESS_APP_NAME="${ingress_name}" ./scripts/k8s_deploy_ingress.sh
 
     # Get IP information of master and ingress
     get_ips

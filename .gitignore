@@ -6,8 +6,8 @@
 
 # project-specific
 /admin.conf
-/config*/
-!/config.example/
+#/config*/
+#!/config.example/
 /galaxy-roles/
 /k8s-config/
 /kubectl
