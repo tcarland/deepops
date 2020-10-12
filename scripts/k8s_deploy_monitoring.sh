@@ -71,7 +71,34 @@ function delete_monitoring() {
     kubectl delete crd podmonitors.monitoring.coreos.com
     kubectl delete crd alertmanagers.monitoring.coreos.com
     kubectl delete crd thanosrulers.monitoring.coreos.com
-    #kubectl delete ns monitoring
+    # deleting ns will zap our PVC
+    #kubectl delete ns monitoring 
+
+    # additional cleanup needed
+    kubectl delete PodSecurityPolicy prometheus-operator-alertmanager \
+      prometheus-operator-grafana prometheus-operator-grafana-test \
+      prometheus-operator-kube-state-metrics prometheus-operator-operator \
+      prometheus-operator-prometheus prometheus-operator-prometheus-node-exporter
+
+    kubectl delete ClusterRole prometheus-operator-grafana-clusterrole \
+      prometheus-operator-kube-state-metrics prometheus-operator-operator \
+      prometheus-operator-operator-psp prometheus-operator-prometheus \
+      prometheus-operator-prometheus-psp psp-prometheus-operator-kube-state-metrics \
+      psp-prometheus-operator-prometheus-node-exporter
+
+    kubectl delete ClusterRoleBinding prometheus-operator-grafana-clusterrolebinding \
+      prometheus-operator-kube-state-metrics prometheus-operator-operator \
+      prometheus-operator-operator-psp prometheus-operator-prometheus \
+      prometheus-operator-prometheus-psp psp-prometheus-operator-kube-state-metrics \
+      psp-prometheus-operator-prometheus-node-exporter
+
+    kubectl delete svc -n kube-system prometheus-operator-coredns \
+      prometheus-operator-kube-controller-manager prometheus-operator-kube-etcd \
+      prometheus-operator-kube-proxy prometheus-operator-kube-scheduler \
+      prometheus-operator-kubelet
+
+    kubectl delete MutatingWebhookConfiguration prometheus-operator-admission
+    kubectl delete ValidatingWebhookConfiguration prometheus-operator-admission
 }
 
 function setup_prom_monitoring() {
