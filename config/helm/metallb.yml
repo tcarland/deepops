@@ -1,0 +1,22 @@
+---
+# Default address range matches private network for the virtual cluster
+# defined in virtual/.
+# You should set this address range based on your site's infrastructure.
+configInline:
+  address-pools:
+  - name: default
+    protocol: layer2
+    addresses:
+    - 10.150.120.100-10.150.120.120
+
+controller:
+  image:
+    repository: metallb/controller
+    tag: v0.9.3
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+
+speaker:
+  image:
+    repository: metallb/speaker
+    tag: v0.9.3
