@@ -254,7 +254,7 @@ data:
     #    "serving.knative.dev/visibility=cluster-local"
     # to achieve the same effect.  This shows how to make routes having
     # the label app=secret only exposed to the local cluster.
-    svc.cluster.local: |
+    svc.dgxtd.trace3.com: |
       selector:
         app: secret
 kind: ConfigMap
@@ -612,7 +612,7 @@ data:
 
     # URL to zipkin collector where traces are sent.
     # This must be specified when backend is "zipkin"
-    zipkin-endpoint: "http://zipkin.istio-system.svc.cluster.local:9411/api/v2/spans"
+    zipkin-endpoint: "http://zipkin.istio-system.svc.dgxtd.trace3.com:9411/api/v2/spans"
 
     # The GCP project into which stackdriver metrics will be written
     # when backend is "stackdriver".  If unspecified, the project-id
@@ -658,7 +658,7 @@ data:
     # {{ingress_namespace}}.svc.cluster.local"`. The {{gateway_namespace}}
     # is optional; when it is omitted, the system will search for
     # the gateway in the serving system namespace `knative-serving`
-    gateway.knative-serving.knative-ingress-gateway: "kfserving-ingressgateway.istio-system.svc.cluster.local"
+    gateway.knative-serving.knative-ingress-gateway: "kfserving-ingressgateway.istio-system.svc.dgxtd.trace3.com"
 
     # A cluster local gateway to allow pods outside of the mesh to access
     # Services and Routes not exposing through an ingress.  If the users
@@ -674,7 +674,7 @@ data:
     # {{local_gateway_namespace}} is optional; when it is omitted, the system
     # will search for the local gateway in the serving system namespace
     # `knative-serving`
-    local-gateway.knative-serving.cluster-local-gateway: "cluster-local-gateway.istio-system.svc.cluster.local"
+    local-gateway.knative-serving.cluster-local-gateway: "cluster-local-gateway.istio-system.svc.dgxtd.trace3.com"
 
     # To use only Istio service mesh and no cluster-local-gateway, replace
     # all local-gateway.* entries by the following entry.

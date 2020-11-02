@@ -3472,7 +3472,7 @@ metadata:
 spec:
   commonName: 'seldon-webhook-service.kubeflow.svc'
   dnsNames:
-  - 'seldon-webhook-service.kubeflow.svc.cluster.local'
+  - 'seldon-webhook-service.kubeflow.svc.dgxtd.trace3.com'
   - 'seldon-webhook-service.kubeflow.svc'
   issuerRef:
     kind: Issuer

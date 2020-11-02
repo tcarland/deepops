@@ -17,6 +17,6 @@ spec:
         prefix: /dex/
     route:
     - destination:
-        host: dex.$(namespace).svc.cluster.local
+        host: dex.$(namespace).svc.dgxtd.trace3.com
         port:
           number: 5556

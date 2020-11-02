@@ -5,7 +5,7 @@ metadata:
     app: mixer
   name: istio-policy
 spec:
-  host: istio-policy.$(namespace).svc.cluster.local
+  host: istio-policy.$(namespace).svc.dgxtd.trace3.com
   trafficPolicy:
     connectionPool:
       http:
@@ -26,7 +26,7 @@ metadata:
     app: mixer
   name: istio-telemetry
 spec:
-  host: istio-telemetry.$(namespace).svc.cluster.local
+  host: istio-telemetry.$(namespace).svc.dgxtd.trace3.com
   trafficPolicy:
     connectionPool:
       http:

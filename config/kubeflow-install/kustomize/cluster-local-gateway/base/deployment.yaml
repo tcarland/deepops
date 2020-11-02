@@ -45,7 +45,7 @@ spec:
           - proxy
           - router
           - --domain
-          - $(POD_NAMESPACE).svc.cluster.local
+          - $(POD_NAMESPACE).svc.dgxtd.trace3.com
           - --log_output_level=default:info
           - --drainDuration
           - '45s' #drainDuration

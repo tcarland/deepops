@@ -19,6 +19,6 @@ spec:
       uri: /kfam/
     route:
     - destination:
-        host: profiles-kfam.$(namespace).svc.cluster.local
+        host: profiles-kfam.$(namespace).svc.dgxtd.trace3.com
         port:
           number: 8081
