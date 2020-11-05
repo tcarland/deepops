@@ -7,7 +7,7 @@ spec:
   commonName: $(serviceName).$(namespace).svc
   dnsNames:
   - $(serviceName).$(namespace).svc
-  - $(serviceName).$(namespace).svc.cluster.local
+  - $(serviceName).$(namespace).svc.dilab.trace3.internal
   issuerRef:
     kind: ClusterIssuer
     name: $(issuer)

@@ -9,8 +9,8 @@ spec:
   - filterConfig:
       httpService:
         serverUri:
-          uri: http://authservice.$(namespace).svc.cluster.local
-          cluster: outbound|8080||authservice.$(namespace).svc.cluster.local
+          uri: http://authservice.$(namespace).svc.dilab.trace3.internal
+          cluster: outbound|8080||authservice.$(namespace).svc.dilab.trace3.internal
           failureModeAllow: false
           timeout: 10s
         authorizationRequest:

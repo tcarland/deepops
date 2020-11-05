@@ -264,7 +264,7 @@ spec:
         - proxy
         - router
         - --domain
-        - $(POD_NAMESPACE).svc.cluster.local
+        - $(POD_NAMESPACE).svc.dilab.trace3.internal
         - --log_output_level=default:info
         - --drainDuration
         - 45s
@@ -470,7 +470,7 @@ spec:
         - --monitoringAddr=:15014
         - --log_output_level=default:info
         - --domain
-        - cluster.local
+        - dilab.trace3.internal
         - --secureGrpcAddr
         - ""
         - --keepaliveMaxServerConnectionAge
@@ -522,7 +522,7 @@ spec:
       - args:
         - proxy
         - --domain
-        - $(POD_NAMESPACE).svc.cluster.local
+        - $(POD_NAMESPACE).svc.dilab.trace3.internal
         - --serviceCluster
         - istio-pilot
         - --templateFile
@@ -691,7 +691,7 @@ spec:
       - args:
         - proxy
         - --domain
-        - $(POD_NAMESPACE).svc.cluster.local
+        - $(POD_NAMESPACE).svc.dilab.trace3.internal
         - --serviceCluster
         - istio-policy
         - --templateFile
@@ -1000,7 +1000,7 @@ spec:
       - args:
         - proxy
         - --domain
-        - $(POD_NAMESPACE).svc.cluster.local
+        - $(POD_NAMESPACE).svc.dilab.trace3.internal
         - --serviceCluster
         - istio-telemetry
         - --templateFile

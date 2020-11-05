@@ -7,4 +7,4 @@ metadata:
 spec:
   rules:
   - services:
-    - istio-ingressgateway.$(namespace).svc.cluster.local
+    - istio-ingressgateway.$(namespace).svc.dilab.trace3.internal
