@@ -8,6 +8,7 @@
 /admin.conf
 #/config*/
 #!/config.example/
+/config/artifacts
 /galaxy-roles/
 /k8s-config/
 /kubectl
