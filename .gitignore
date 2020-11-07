@@ -12,3 +12,5 @@
 /k8s-config/
 /kubectl
 /tridentctl
+
+.cache
