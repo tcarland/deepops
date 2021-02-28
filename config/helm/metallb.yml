@@ -7,7 +7,7 @@ configInline:
   - name: default
     protocol: layer2
     addresses:
-    - 10.0.0.100-10.0.0.110
+    - 10.6.1.100-10.6.1.110
 
 controller:
   nodeSelector:
