@@ -6,8 +6,8 @@
 
 # project-specific
 /admin.conf
-/config*/
-!/config.example/
+#/config*/
+#!/config.example/
 /roles/galaxy/
 /collections/*
 /k8s-config/

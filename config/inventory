@@ -1,0 +1,62 @@
+#
+# Server Inventory File
+#
+# Uncomment and change the IP addresses in this file to match your environment
+# Define per-group or per-host configuration in group_vars/*.yml
+
+######
+# ALL NODES
+# NOTE: Use existing hostnames here, DeepOps will configure server hostnames to match these values
+######
+[all]
+ta-di0001 	ip=10.6.1.9
+ta-di0002 	ip=10.6.1.10
+ta-di0003	ip=10.6.1.12
+ta-di0004	ip=10.6.1.13
+ta-di0005	ip=10.6.1.14
+ta-di0006	ip=10.6.1.15
+ta-di0007	ip=10.6.1.16
+dgx1		ip=10.6.2.11
+
+######
+# KUBERNETES
+######
+[kube-master]
+ta-di00[01-03]
+
+# Odd number of nodes required
+[etcd]
+ta-di00[01-03]
+
+# Also add mgmt/master nodes here if they will run non-control plane jobs
+[kube-node]
+ta-di00[04-07]
+dgx1
+
+[k8s-cluster:children]
+kube-master
+kube-node
+
+######
+# SLURM
+######
+[slurm-master]
+#login01
+
+[slurm-node]
+#gpu01
+#gpu02
+
+[slurm-cluster:children]
+slurm-master
+slurm-node
+
+######
+# SSH connection configuration
+######
+[all:vars]
+# SSH User
+ansible_user=root
+ansible_ssh_private_key_file='~/.ssh/id_rsa'
+# SSH bastion/jumpbox
+#ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q ubuntu@10.0.0.1"'
