@@ -9,8 +9,14 @@
 # NOTE: Use existing hostnames here, DeepOps will configure server hostnames to match these values
 ######
 [all]
-ta-di00[01:07]
-dgx1
+ta-di0001 	ip=10.6.1.9
+ta-di0002 	ip=10.6.1.10
+ta-di0003	ip=10.6.1.12
+ta-di0004	ip=10.6.1.13
+ta-di0005	ip=10.6.1.14
+ta-di0006	ip=10.6.1.15
+ta-di0007	ip=10.6.1.16
+dgx1		ip=10.6.2.11
 
 ######
 # KUBERNETES

@@ -6,8 +6,8 @@
 # Define per-group or per-host values in the other configuration files
 #
 
-dns_domain: dilab.trace3.local
-cluster_name: dilab.trace3.local
+#dns_domain: dilab.trace3.local
+#cluster_name: dilab.trace3.local
 
 ################################################################################
 # PROXY
