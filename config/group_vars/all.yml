@@ -30,7 +30,7 @@
 
 # NTP configuration
 # Playbook: chrony-client
-chrony_install: yes
+chrony_install: no
 chrony_service_state: "started"
 chrony_service_enabled: "yes"
 chrony_timezone: "Etc/UTC"
@@ -41,7 +41,7 @@ chrony_config_server:
   - 3.pool.ntp.org
 
 # Set hostname based on inventory file
-deepops_set_hostname: true
+deepops_set_hostname: false
 
 ################################################################################
 # SOFTWARE                                                                     #
@@ -136,7 +136,7 @@ docker_install: yes
 docker_version: '19.03'
 docker_dns_servers_strict: no
 docker_storage_options: -s overlay2
-#docker_options: "--bip=192.168.99.1/24"
+docker_options: "--bip=192.168.99.1/24"
 # Enable docker iptables
 # If this isn't set, containers won't have access to the outside net
 # See https://github.com/kubernetes-sigs/kubespray/issues/2002
