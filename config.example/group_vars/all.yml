@@ -106,11 +106,23 @@ users:
 
 
 ################################################################################
+# SSH HARDENING                                                                #
+#   dev-sec.ssh-hardening role called from users playbook                      #
+################################################################################
+
+ssh_client_hardening: false
+ssh_server_password_login: true
+ssh_use_pam: 10
+ssh_max_auth_retries: 10
+sftp_enabled: true
+sftp_chroot: false
+
+################################################################################
 # NVIDIA                                                                       #
 ################################################################################
 # NVIDIA GPU configuration
 # Playbook: nvidia-cuda
-cuda_version: cuda-toolkit-11-0
+cuda_version: cuda-toolkit-11-3
 
 # DGX-specific vars may be used to target specific models,
 # because available versions for DGX may differ from the generic repo
@@ -161,7 +173,7 @@ docker_iptables_enabled: true
 #
 # See: https://github.com/NVIDIA/pyxis/wiki/Setup#enroot-configuration-example
 enroot_runtime_path: '/run/enroot/user-$(id -u)'
-enroot_cache_path: '/var/lib/enroot-cache/group-$(id -g)'
+enroot_cache_path: '/var/lib/enroot-cache/user-$(id -u)'
 enroot_data_path: '/tmp/enroot-data/user-$(id -u)'
 enroot_config: |
   ENROOT_CONFIG_PATH ${HOME}/.config/enroot
@@ -184,7 +196,7 @@ enroot_environ_config_files_dgx:
 # Singularity configuration
 # Playbook: singularity, slurm-cluster
 # Singularity target version
-singularity_version: "3.5.3"
+singularity_version: "3.7.3"
 singularity_conf_path: "/etc/singularity/singularity.conf"
 bind_paths: []
   # example:
@@ -283,7 +295,7 @@ standalone_container_registry_port: "5000"
 #docker_registry_mirrors: ["http://<host>:<port>"]
 
 ################################################################################
-# Configuration for NGC-Ready playbok                                          #
+# Configuration for NGC-Ready playbook                                         #
 ################################################################################
 ngc_ready_cuda_container: "nvcr.io/nvidia/cuda:10.1-base-ubuntu18.04"
 ngc_ready_pytorch: "nvcr.io/nvidia/pytorch:18.10-py3"
